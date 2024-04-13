@@ -1,3 +1,4 @@
+//* Escribe un método que se llame triangulo() que reciba un número entero como parámetro y muestre por pantalla una pirámide de asteriscos */
 import java.util.Scanner;
 public class Ejercicio5 {
     public static Scanner patata = new Scanner(System.in);
