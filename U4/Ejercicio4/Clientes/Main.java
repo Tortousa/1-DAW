@@ -1,4 +1,4 @@
-package com.clases.clase05;
+package Clientes;
 
 public class Main {
 

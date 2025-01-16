@@ -1,4 +1,4 @@
-package src.Clientes;
+package Clientes;
 
 public class Cliente {
     public String nombre;

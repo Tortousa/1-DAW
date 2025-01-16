@@ -1,4 +1,4 @@
-package src.Clientes;
+package Clientes;
 
 public class Main {
 	public static void main(String[] args) {

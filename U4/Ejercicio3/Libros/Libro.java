@@ -1,4 +1,4 @@
-package src.Libros;
+package Libros;
 
 public class Libro {
     private String titulo;

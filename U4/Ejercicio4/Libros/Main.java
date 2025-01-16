@@ -1,4 +1,4 @@
-package com.clases.clase06;
+package Libros;
 
 public class Main {
 

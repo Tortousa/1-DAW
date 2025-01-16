@@ -1,4 +1,4 @@
-public class Estudiante{
+public class Estudiante {
     private String nombre;
     private String apellido1;
     private String apellido2;
@@ -9,7 +9,8 @@ public class Estudiante{
     private int numero_telefono;
     public static int totalEstudiantes = 0;
 
-    public Estudiante(String nombre, String apellido1, String apellido2, int curso, String grado, String universidad, String correo_electronico, int numero_telefono) {
+    public Estudiante(String nombre, String apellido1, String apellido2, int curso, String grado, String universidad,
+            String correo_electronico, int numero_telefono) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
@@ -27,7 +28,9 @@ public class Estudiante{
     }
 
     public void mostrarInfo() {
-        System.out.println("Nombre: " + nombre + "\nApellidos: " + apellido1 + " " + apellido2 + "\nCurso: " + curso + grado + "\nUniversidad: " + universidad + "\nCorreo Electronico: " + correo_electronico + "\nNumero telefono: " + numero_telefono + "\n");
+        System.out.println("Nombre: " + nombre + "\nApellidos: " + apellido1 + " " + apellido2 + "\nCurso: " + curso
+                + grado + "\nUniversidad: " + universidad + "\nCorreo Electronico: " + correo_electronico
+                + "\nNumero telefono: " + numero_telefono + "\n");
     }
 
     public static int mostrarContador() {

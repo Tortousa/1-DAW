@@ -1,12 +1,12 @@
-package com.clases.clase07;
+package Clientes;
 /*
  * Nombre del archivo: Main.java
- * Descripcion:Clase que define las propiedades de un cliente (nombre, apellidos, email) y su constructor
+ * Descripcion: Clase que define las propiedades de un cliente (nombre, apellidos, email) y su constructor
  * Autor: Daniel Tortosa Burtseva
- * Fecha:
+ * Fecha: 15/01/2025
  */
 
-// Clase Cliente que representa los datos basicos de un cliente.
+//* Clase Cliente que representa los datos basicos de un cliente.
 public class Cliente {
 	public String nombre;
 	public String apellidos;
@@ -21,7 +21,7 @@ public class Cliente {
 	}
 	
 	/*
-	 * Cocnstructor con parametros(sobrecargado)
+	 * Constructor con parametros(sobrecargado)
 	 * Lo utilizamos si queremos asignar directamente nombre, apellidos y email.
 	 */
 	public Cliente(String nombre, String apellidos, String email) {
