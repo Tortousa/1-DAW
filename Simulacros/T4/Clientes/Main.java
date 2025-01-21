@@ -2,19 +2,18 @@ package Clientes;
 
 /*
  * Nombre del archivo: Main.java
- * Descripcion:
+ * Descripcion: Programa que gestiona una lista de clientes.
  * Autor: Daniel Tortosa Burtseva
  * Fecha: 15/01/2025
  */
 import java.util.Scanner;
-import java.util.Arrays;
 
 /*
- * Clase principal que recoge clientes, los ordena y permite mostrar un cliente seleccionado en un menu por el usuario.
- * 1. Crea un array de clientes pidiendolos por consola.
- * 2. Ordena dicho array alfabeticamente por los apellidos.
- * 3. Muestra un listado de clientes para que el usuario seleccione uno de ellos.
- * 4. 
+ * Clase principal que recoge clientes, los ordena y permite mostrar un cliente seleccionado en un menú interactivo.
+ * Funcionalidades principales:
+ * 1. Crear un array de clientes pidiéndolos por consola.
+ * 2. Ordenar dicho array alfabéticamente por los apellidos.
+ * 3. Mostrar un menú que permita al usuario seleccionar un cliente para ver sus datos.
  */
 public class Main {
 
@@ -31,12 +30,13 @@ public class Main {
 	}
 
 	/*
-	 * pedirClientes();
-	 * Crear un array de objetos CLiente de longitud CANTIDAD
-	 * Por cada posicion, instancia un objeto Cliente y pide los datos por consola
-	 * 
-	 * @return Array de Cliente[] conn los datos introducidos
-	 */
+     * pedirClientes():
+     * Crea un array de objetos Cliente de longitud CANTIDAD.
+     * Por cada posición, instancia un objeto Cliente y solicita los datos al usuario por consola.
+     *
+     * @param patata Objeto Scanner para la entrada de datos por consola.
+     * @return Array de Cliente[] con los datos introducidos.
+     */
 	public static Cliente[] pedirClientes(Scanner patata) {
 		Cliente[] clientes = new Cliente[CANTIDAD];
 
@@ -46,25 +46,24 @@ public class Main {
 
 			clientes[i] = new Cliente();
 			System.out.print("Nombre: ");
-			clientes[i].nombre = patata.nextLine().trim();
+			clientes[i].setNombre(patata.nextLine().trim());
 
 			System.out.print("Apellidos: ");
-			clientes[i].apellidos = patata.nextLine().trim();
+			clientes[i].setApellidos(patata.nextLine().trim());
 
 			System.out.print("Email: ");
-			clientes[i].email = patata.nextLine().trim();
+			clientes[i].setEmail(patata.nextLine().trim());
 		}
 		return clientes;
 	}
 
 	/*
-	 * mostrarCliente();
-	 * Muestra los datos de un cliente en consola,dada su posicion en el array
-	 * 
-	 * @param clientes El array de clientes
-	 * 
-	 * @param posicion La posicion del cliente a mostrar
-	 */
+     * mostrarCliente():
+     * Muestra los datos de un cliente en consola, dada su posición en el array.
+     *
+     * @param clientes Array de clientes.
+     * @param indice Índice del cliente a mostrar.
+     */
 	public static void mostrarCliente(Cliente[] clientes, int indice) {
 		Cliente cliente = clientes[indice];
 
@@ -76,13 +75,12 @@ public class Main {
 	}
 
 	/*
-	 * menuClientes();
-	 * Muestra un menu con los apellidos de los clientes
-	 * 
-	 * @param clientes El array de clientes
-	 * 
-	 * @param patata
-	 */
+     * menuClientes():
+     * Muestra un menú interactivo con los apellidos de los clientes.
+     *
+     * @param clientes Array de clientes.
+     * @param patata Objeto Scanner para la entrada de datos por consola.
+     */
 	public static void menuClientes(Cliente[] clientes, Scanner patata) {
 		int opcion;
 
@@ -95,24 +93,28 @@ public class Main {
 
 			System.out.println("0. Salir");
 
-			opcion = pedirInt("Opcion: ", patata);
+			do {
+				opcion = pedirInt("Opcion: ", patata);
 
-			if (opcion > 0 && opcion <= CANTIDAD) {
+				if (opcion < 0 || opcion > CANTIDAD) {
+					System.out.println("Error: Opcion no valida.");
+				}
+			} while(opcion < 0 || opcion > CANTIDAD);
+			
+			if(opcion > 0) {
 				mostrarCliente(clientes, opcion - 1);
-			} else if (opcion < 0 || opcion > CANTIDAD) {
-				System.out.println("Error, no has introducido un numero.");
 			}
 		} while (opcion != 0);
 	}
 
 	/*
-	 * pedirInt();
-	 * Pedir un numero entero con control de excepciones
-	 * 
-	 * @param enunciado String para especificar la accion del metodo
-	 * 
-	 * @param patata
-	 */
+     * pedirInt():
+     * Solicita un número entero al usuario con control de excepciones.
+     *
+     * @param enunciado Mensaje a mostrar al usuario.
+     * @param patata Objeto Scanner para la entrada de datos.
+     * @return Número entero introducido por el usuario.
+     */
 	public static int pedirInt(String enunciado, Scanner patata) {
 		int n = 0;
 		boolean check = false;
@@ -131,11 +133,12 @@ public class Main {
 	}
 
 	/*
-	 * ordenarClientes();
-	 * Ordenar los datos alfabeticamente
-	 * 
-	 * @param clientes El array de clientes
-	 */
+     * ordenarClientes():
+     * Ordena los clientes alfabéticamente por apellidos usando el algoritmo de burbuja.
+     *
+     * @param clientes Array de clientes.
+     * @return Array de clientes ordenado alfabéticamente.
+     */
 	public static Cliente[] ordenarClientes(Cliente[] clientes) {
 		for (int i = 0; i < clientes.length - 1; i++) {
 			for (int j = 0; j < clientes.length - 1 - i; j++) {
