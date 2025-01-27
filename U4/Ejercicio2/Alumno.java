@@ -5,10 +5,10 @@
  * NRE
  * Email
  * Direcci√≥n
- * Dado que los atributos ser·n privados y no se tendra acceso directo a ellos cuando se instancie un objeto de la clase alumno, se debe crear los metodos "set" y "get" para cada uno de los atributos.
- * En los mÈtodos "set" se deber· establecer el control que se considere adecuado a la hora de actualizar el contenido del atributo correspondiente.
+ * Dado que los atributos ser√°n privados y no se tendra acceso directo a ellos cuando se instancie un objeto de la clase alumno, se debe crear los metodos "set" y "get" para cada uno de los atributos.
+ * En los m√©todos "set" se deber√° establecer el control que se considere adecuado a la hora de actualizar el contenido del atributo correspondiente.
  * Se debe crear un metodo llamado "info" que devuelva toda la informaci√≥n completa del usuario presentada de la forma que mejor se considere.
- * Tambien se deben crear dos constructores, el primero estar· vaci≠o y no recibir· ningun par·metro; el segundo recibir· como par·metros cada uno de los valores que deber· asignar a cada uno de los atributos.
+ * Tambien se deben crear dos constructores, el primero estar√° vaci¬≠o y no recibir√° ningun par√°metro; el segundo recibir√° como par√°metros cada uno de los valores que deber√° asignar a cada uno de los atributos.
  */
 
 public class Alumno {
