@@ -1,0 +1,5 @@
+El Quijote,,Miguel de Cervantes,,Editorial Clásicos,,978-3-16-148410-0,,1605,,19.95
+Cien Años de Soledad,,Gabriel García Márquez,,Editorial Realismo Mágico,,978-0-14-118499-9,,1967,,14.50
+El Hobbit,,J.R.R. Tolkien,,Minotauro,,978-0-261-10221-7,,1937,,12.99
+1984,,George Orwell,,Secker & Warburg,,978-0-452-28423-4,,1949,,18.99
+Don Quijote,,Miguel de Cervantes,,Editorial Anaya,,978-84-207-0536-6,,1605,,22.50
