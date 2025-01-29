@@ -30,8 +30,9 @@ public class Main {
 
 	    for (Libro i : libros) {
 	        if (opcion.equalsIgnoreCase(i.getTitulo())) {
-	            mostrarLibro(i);
-	            
+	           	mostrarLibro(i);
+	           	check = true;
+												break;
 	        }
 	    }
 
