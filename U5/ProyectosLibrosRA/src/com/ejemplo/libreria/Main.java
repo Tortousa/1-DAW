@@ -3,6 +3,7 @@ package com.ejemplo.libreria;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 
 public class Main {
 	public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class Main {
 	
 	public static void mostrarMenu(ArrayList<Libro> libros, Scanner sc) {
 		String opcion = "";
-		System.out.println("Titulos de los libros\n-------------------");
+		System.out.println("Titulos de los libros\n--------------------");
 		
 	    for (int i = 0; i < libros.size(); i++) {
 	        System.out.println((i + 1) + " - " + libros.get(i).getTitulo());
@@ -26,24 +27,33 @@ public class Main {
 	    System.out.print("Titulo: ");
 	    opcion = sc.nextLine().trim();
 
-	    boolean check = false;
-
-	    for (Libro i : libros) {
-	        if (opcion.equalsIgnoreCase(i.getTitulo())) {
-	           	mostrarLibro(i);
-	           	check = true;
-												break;
-	        }
+	    if(validarTitulo(opcion)) {
+	    	System.out.println("Titulo encontrado.\n");
+	    	
+	    	for (Libro i : libros) {
+	    		if (opcion.equalsIgnoreCase(i.getTitulo())) {
+	    			mostrarLibro(i);
+	    			return;
+	        	}
+	    	}
+	    } else {
+	    	System.out.println("Titulo no encontrado.");
 	    }
 
-	    if (!check) {
-	        System.out.println("Título no válido.");
+	    if (!validarTitulo(opcion)) {
+	        System.out.println("Título no valido.");
+	    } else {
+	    	System.out.println("Título valido.");
 	    }
 	}
 
 	public static void mostrarLibro(Libro libro) {
 	    System.out.println(libro);
 	    System.out.println();
+	}
+	
+	public static boolean validarTitulo(String titulo) {
+		return Libro.regexTitulo.matcher(titulo).matches();
 	}
 	
 	public static ArrayList<Libro> importarLibros(String rutaArchivo) {

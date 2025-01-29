@@ -1,9 +1,13 @@
 package com.ejemplo.libreria;
 
+import java.util.regex.Pattern;
+
 public class Libro {
 	private String titulo, autor, editorial, isbn;
 	private int anioPublicacion;
 	private double precio;
+	
+	public static final Pattern regexTitulo = Pattern.compile("^[\\p{L}0-9\\p{Z}]{2,20}$");
 	
 	public Libro(String titulo, String autor, String editorial, String isbn, int anioPublicacion, double precio) {
 		this.titulo = titulo;
