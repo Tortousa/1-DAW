@@ -3,132 +3,123 @@ package com.ejemplo.libreria;
 import java.util.regex.Pattern;
 
 public class Libro {
-	private String titulo, autor, editorial, isbn;
-	private int anioPublicacion;
-	private double precio;
-	
-	private static final Pattern REGEX_TITULO = Pattern.compile("^[\\p{L}0-9,.-]{2,20}$");
-	
-	private static final Pattern REGEX_EDITORIAL = Pattern.compile("^[\\p{L}0-9,.-]{2,100}$");
-	
-	private static final Pattern REGEX_AUTOR = Pattern.compile("^[\\p{L}]{2,10}$");
-	
-	private static final Pattern REGEX_ISBN = Pattern.compile("^(97(8|9))?\\d{9}(\\d|X)$");
-	
-	private static final Pattern REGEX_PRECIO= Pattern.compile("^[\\d{1,7}(\\.\\d{1,2})?$");
-	
-	public static boolean esValidoAnio(int anioPublicacion) {
-		int anioActual = java.time.Year.now().getValue();
-		return anioPublicacion >= 1000 && anioPublicacion <= anioActual;
-	}
-	
-	public static boolean esValidoPrecio(double precio) {
-		return precio >= 0 && REGEX_PRECIO.matcher(String.valueOf(precio)).matches();
-	}
-	
-	public static boolean esValidoIsbn(String isbn) {
-		return REGEX_ISBN.matcher(isbn).matches();
-	}
-	
-	public static boolean esValidoAutor(String autor) {
-		return REGEX_AUTOR.matcher(autor).matches();
-	}
-	
-	public static boolean esValidoTitulo(String titulo) {
-		return REGEX_TITULO.matcher(titulo).matches();
-	}
-	
-	public static boolean esValidoEditorial(String editorial) {
-		return REGEX_EDITORIAL.matcher(editorial).matches();
-	}
-	
-	public Libro(String titulo, String autor, String editorial, String isbn, int anioPublicacion, double precio) {
-		this.titulo = titulo;
-		if(!esValidoTitulo(titulo)) {
-			throw new IllegalArgumentException("Titulo no valido.");
-		}
-		
-		this.autor = autor;
-		if(!esValidoAutor(autor)) {
-			throw new IllegalArgumentException("Nombre no valido.");
-		}
-		
-		this.editorial = editorial;
-		if(!esValidoEditorial(editorial)) {
-			throw new IllegalArgumentException("Editorial no valida.");
-		}
-		
-		this.isbn = isbn;
-		if(!esValidoIsbn(isbn)) {
-			throw new IllegalArgumentException("Isbn no valido.");
-		}
-		
-		this.anioPublicacion = anioPublicacion;
-		if(!esValidoAnio(anioPublicacion)) {
-			throw new IllegalArgumentException("Año de publicacion no valido.");
-		}
-		
-		this.precio = precio;
-		if(!esValidoPrecio(precio)) {
-			throw new IllegalArgumentException("Precio no valido.");
-		}
-	}
+    private String titulo, autor, editorial, isbn;
+    private int anioPublicacion;
+    private double precio;
 
-	public String getTitulo() {
-		return titulo;
-	}
+    private static final Pattern REGEX_TITULO = Pattern.compile("^[\\p{L}0-9,.-]{2,100}$");
+    private static final Pattern REGEX_EDITORIAL = Pattern.compile("^[\\p{L}0-9,.-]{2,100}$");
+    private static final Pattern REGEX_AUTOR = Pattern.compile("^[\\p{L} ]{2,50}$");
+    private static final Pattern REGEX_ISBN = Pattern.compile("^(97(8|9))?\\d{9}(\\d|X)$");
+    private static final Pattern REGEX_PRECIO = Pattern.compile("^\\d{1,7}(\\.\\d{1,2})?$");
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public static boolean esValidoAnio(int anioPublicacion) {
+        int anioActual = java.time.Year.now().getValue();
+        return anioPublicacion >= 1000 && anioPublicacion <= anioActual;
+    }
 
-	public String getAutor() {
-		return autor;
-	}
+    public static boolean esValidoPrecio(double precio) {
+        return precio >= 0;
+    }
 
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
+    public static boolean esValidoIsbn(String isbn) {
+        return REGEX_ISBN.matcher(isbn).matches();
+    }
 
-	public String getEditorial() {
-		return editorial;
-	}
+    public static boolean esValidoAutor(String autor) {
+        return REGEX_AUTOR.matcher(autor).matches();
+    }
 
-	public void setEditorial(String editorial) {
-		this.editorial = editorial;
-	}
+    public static boolean esValidoTitulo(String titulo) {
+        return REGEX_TITULO.matcher(titulo).matches();
+    }
 
-	public String getIsbn() {
-		return isbn;
-	}
+    public static boolean esValidoEditorial(String editorial) {
+        return REGEX_EDITORIAL.matcher(editorial).matches();
+    }
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
+    public Libro(String titulo, String autor, String editorial, String isbn, int anioPublicacion, double precio) {
+        setTitulo(titulo);
+        setAutor(autor);
+        setEditorial(editorial);
+        setIsbn(isbn);
+        setAnioPublicacion(anioPublicacion);
+        setPrecio(precio);
+    }
 
-	public int getAnioPublicacion() {
-		return anioPublicacion;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public void setAnioPublicacion(int anioPublicacion) {
-		this.anioPublicacion = anioPublicacion;
-	}
+    public void setTitulo(String titulo) {
+        if (!esValidoTitulo(titulo)) {
+            throw new IllegalArgumentException("Título no valido.");
+        }
+        this.titulo = titulo;
+    }
 
-	public double getPrecio() {
-		return precio;
-	}
+    public String getAutor() {
+        return autor;
+    }
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-	
-	@Override
-	public String toString() {
-	    return "Título: " + titulo +
-	           "\nAutor: " + autor +
-	           "\nEditorial: " + editorial +
-	           "\nIsbn: " + isbn +
-	           "\nAño: " + anioPublicacion +
-	           "\nPrecio: " + precio + " €";
-	}
+    public void setAutor(String autor) {
+        if (!esValidoAutor(autor)) {
+            throw new IllegalArgumentException("Nombre de autor no valido.");
+        }
+        this.autor = autor;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        if (!esValidoEditorial(editorial)) {
+            throw new IllegalArgumentException("Editorial no valida.");
+        }
+        this.editorial = editorial;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        if (!esValidoIsbn(isbn)) {
+            throw new IllegalArgumentException("ISBN no valido.");
+        }
+        this.isbn = isbn;
+    }
+
+    public int getAnioPublicacion() {
+        return anioPublicacion;
+    }
+
+    public void setAnioPublicacion(int anioPublicacion) {
+        if (!esValidoAnio(anioPublicacion)) {
+            throw new IllegalArgumentException("Año de publicacion no valido.");
+        }
+        this.anioPublicacion = anioPublicacion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        if (!esValidoPrecio(precio)) {
+            throw new IllegalArgumentException("Precio no valido.");
+        }
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Titulo: " + titulo +
+               "\nAutor: " + autor +
+               "\nEditorial: " + editorial +
+               "\nISBN: " + isbn +
+               "\nAño: " + anioPublicacion +
+               "\nPrecio: " + precio + " €";
+    }
 }
