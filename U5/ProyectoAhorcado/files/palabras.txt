@@ -1,0 +1,9 @@
+sol
+casa
+libro
+mesa
+parque
+ordenador
+biblioteca
+programacion
+electroencefalografista
