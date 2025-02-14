@@ -15,11 +15,29 @@ public class Main {
             """;
 
     public static void main(String[] args) {
+<<<<<<< HEAD
+        Scanner patata = new Scanner(System.in);
+=======
         Scanner scanner = new Scanner(System.in);
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
         int opcion;
 
         do {
             System.out.println(MENU);
+<<<<<<< HEAD
+            opcion = pedirInt("Opcion nº: ", patata);
+
+            switch (opcion) {
+                case 1:
+                    nuevoJuego(patata);
+                    break;
+                case 2:
+                    try {
+                        Ranking.mostrarRanking();
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Error al mostrar el ranking: " + e.getMessage());
+                    }
+=======
             opcion = pedirInt("Opcion nº: ", scanner);
 
             switch (opcion) {
@@ -28,11 +46,37 @@ public class Main {
                     break;
                 case 2:
                     // Implementar la lógica para ver el ranking (se hará más adelante)
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
                     break;
                 case 0:
                     System.out.println("\nHasta luego!");
                     break;
                 default:
+<<<<<<< HEAD
+                    System.out.println("\nOpcion no valida, intenta de nuevo.");
+            }
+        } while (opcion != 0);
+
+        patata.close();
+    }
+
+    private static void nuevoJuego(Scanner patata) {
+        System.out.print("Ingrese su nombre: ");
+        String nombreJugador = patata.nextLine();
+        Jugador jugador = new Jugador(nombreJugador);
+
+        System.out.println("Seleccione la dificultad:");
+        System.out.println("1. Facil");
+        System.out.println("2. Normal");
+        System.out.println("3. Dificil");
+        System.out.print("Ingrese el numero de la dificultad: ");
+        int opcionDificultad = patata.nextInt();
+        patata.nextLine();
+
+        Dificultad dificultad = obtenerDificultad(opcionDificultad);
+
+        String rutaArchivo = "./files/palabras.txt";
+=======
                     System.out.println("\nOpción no valida, intenta de nuevo.");
             }
         } while (opcion != 0);
@@ -56,6 +100,7 @@ public class Main {
         Dificultad dificultad = obtenerDificultad(opcionDificultad);
 
         String rutaArchivo = "./files/palabras.txt"; // Ruta relativa
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
         ArrayList<String> palabras = cargarPalabrasDesdeArchivo(rutaArchivo);
 
         String palabraSeleccionada = seleccionarPalabraAlAzar(palabras, dificultad);
@@ -74,7 +119,11 @@ public class Main {
             case 3:
                 return Dificultad.DIFICIL;
             default:
+<<<<<<< HEAD
+                System.out.println("Dificultad no valida. Se asignará dificultad normal.");
+=======
                 System.out.println("Dificultad no válida. Se asignará dificultad normal.");
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
                 return Dificultad.NORMAL;
         }
     }
@@ -111,14 +160,22 @@ public class Main {
         return palabrasFiltradas.get(indiceAleatorio);
     }
 
+<<<<<<< HEAD
+    public static int pedirInt(String enunciado, Scanner patata) {
+=======
     public static int pedirInt(String enunciado, Scanner scanner) {
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
         int n = 0;
         boolean check = false;
 
         do {
             System.out.print(enunciado);
             try {
+<<<<<<< HEAD
+                n = Integer.parseInt(patata.nextLine().trim());
+=======
                 n = Integer.parseInt(scanner.nextLine().trim());
+>>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
                 check = true;
             } catch (Exception e) {
                 System.out.println("Error: No has introducido un numero valido.");

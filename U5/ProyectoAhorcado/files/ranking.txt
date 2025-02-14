@@ -1,0 +1,6 @@
+Dani,libro,FACIL,3,2025:02:14:22:03:17
+Pedro,libro,FACIL,2,2025:02:14:22:04:03
+Olga,casa,FACIL,0,2025:02:14:22:06:16
+XD,sol,FACIL,1,2025:02:14:22:07:29
+Jorge,ca_a,FACIL,5,2025:02:14:22:08:06
+Papa,electroencefalografista,DIFICIL,3,2025:02:14:22:12:53
