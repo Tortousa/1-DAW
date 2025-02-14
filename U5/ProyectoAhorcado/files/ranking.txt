@@ -4,3 +4,5 @@ Olga,casa,FACIL,0,2025:02:14:22:06:16
 XD,sol,FACIL,1,2025:02:14:22:07:29
 Jorge,ca_a,FACIL,5,2025:02:14:22:08:06
 Papa,electroencefalografista,DIFICIL,3,2025:02:14:22:12:53
+Ulises,_esa,FACIL,5,2025:02:14:22:53:44
+Paco,e_e_tr_en_e_a__gra___ta,DIFICIL,5,2025:02:14:22:55:31

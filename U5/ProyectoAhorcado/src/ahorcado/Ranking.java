@@ -1,6 +1,5 @@
 package ahorcado;
 
-<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -120,8 +119,3 @@ public class Ranking {
         }
     }
 }
-=======
-public class Ranking {
-
-}
->>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587

@@ -1,12 +1,7 @@
 sol
-<<<<<<< HEAD
 no
-porque
-Papiroflexia
-Radar
-Nicaragua
-=======
->>>>>>> 2f36d60103bf0c8f04e700e3a9036396f5c9a587
+ser
+luna
 casa
 libro
 mesa
@@ -14,4 +9,5 @@ parque
 ordenador
 biblioteca
 programacion
+papiroflexia
 electroencefalografista
