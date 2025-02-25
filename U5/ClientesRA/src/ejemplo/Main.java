@@ -39,18 +39,23 @@ public class Main {
 
     private static void mostrarClientes(Cliente[] arrayClientes) {
         System.out.println("\n===== Mostrando Clientes =====");
-
+    
         for (Cliente c : arrayClientes) {
             if (c == null) {
                 continue;
             }
+            
             boolean nifValido = validarFormatoNif(c.getNif());
             boolean fechaValida = validarFormatoFecha(c.getFechaAlta());
-
-            System.out.println(c + " - NIF válido: " + nifValido + ", Fecha válida: " + fechaValida);
+    
+            System.out.println("Cliente:");
+            System.out.println(c);
+            System.out.println("NIF válido: " + (nifValido ? "Sí" : "No"));
+            System.out.println("Fecha válida: " + (fechaValida ? "Sí" : "No"));
+            System.out.println("--------------------------");
         }
     }
-
+    
     private static boolean validarFormatoNif(String nif) {
         String regexNIF = "^[0-9]{8}[a-zA-Z]$";
         String regexNIE = "^[xXyYzZ][0-9]{7}[a-zA-Z]$";

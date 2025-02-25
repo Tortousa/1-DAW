@@ -68,4 +68,8 @@ public class Futbolista {
     public void setGoles(int goles) {
         this.goles = goles;
     }
+
+    public String toString() {
+        return getNombre() + " " + getApellidos();
+    }
 }
