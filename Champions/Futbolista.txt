@@ -1,4 +1,0 @@
-Lionel,,Messi,,12345678a,,C/Luna, 27, 30132, Murcia,,pepelopez@gmail.com,,12/11/2019,,titular,,20;
-Cristiano,,Ronaldo,,87654321b,,C/ Falsa, 123, 30009, Murcia,,mariaalvarez@gmail.com,,12/10/2020,,titular,,25;
-Vinicius,,Jr,,X2654874E,,C/ Arce, 10, Murcia, 30005,,aespinosa@gmail.com,,02/9/2019,,suplente,,10;
-Isco,,Alarcon,,1122344C,,C/ Olmo, 13, Murcia, 30015,,michaelknight@gmail.com,,45/03/2016,,suplente,,5;
