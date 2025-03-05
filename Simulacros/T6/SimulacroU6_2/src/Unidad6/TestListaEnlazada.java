@@ -6,6 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * Clase de pruebas unitarias para la clase {@link ListaDoble}.
+ */
 public class TestListaEnlazada {
 	@Test
 	public void testListaVaciaAlInicio() {
