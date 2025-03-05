@@ -1,6 +1,6 @@
 package Unidad6;
 
-public class ListaOrdenada extends ListaEnlazada{
+public class ListaOrdenada extends ListaDoble{
 	@Override
 	public void add(Object elemento) {
 		if(isEmpty()) {
