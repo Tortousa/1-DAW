@@ -1,4 +1,4 @@
-package ejercicio2;
+package ejercicio3;
 
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import dao.IProductoDAO;
 import dao.ProductoDAOImpl;
 import modelo.Producto;
 
-public class MainEj2 {
+public class MainEj3 {
 
 	public static void main(String[] args) {
 		IProductoDAO dao = new ProductoDAOImpl();
@@ -16,11 +16,11 @@ public class MainEj2 {
 
 		try {
 			System.out.print("Intoduce el precio minimo: ");
-			double precioMin = patata.nextDouble();
+			String buscarNombre = patata.nextLine();
 			
-			List<Producto> productos = dao.listarProductosPrecioMinimo(precioMin);
+			List<Producto> productos = dao.listarProductosPorNombre(buscarNombre);
 			
-			System.out.println("Mostramos los productos con precio mayor o igual a " + precioMin);
+			System.out.println("Mostramos los productos con que contengan " + buscarNombre + " en su nombre");
 			for(Producto p : productos) {
 				String nombre = p.getNombre();
 				double precio = p.getPrecio();
@@ -32,3 +32,4 @@ public class MainEj2 {
 		}
 	}
 }
+

@@ -5,9 +5,12 @@ import java.util.List;
 import modelo.Producto;
 
 public interface IProductoDAO {
-	//Ej 1
+	// Ej 1
 	List<Producto> listarProductosConPrecio() throws Exception;
 	
 	// Ej 2
 	List<Producto> listarProductosPrecioMinimo(double precioMinimo) throws Exception;
+	
+	// Ej 3
+	List<Producto> listarProductosPorNombre(String texto) throws Exception;
 }

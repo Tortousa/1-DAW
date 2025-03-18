@@ -17,7 +17,7 @@ public class MainEj1 {
 			System.out.println("Mostramos los resultados");
 			for(Producto p : productos) {
 				double euros = p.getPrecio();
-				double dolares = euros*1.08;
+				double dolares = euros * 1.08;
 				dolares = Math.round(dolares * 100) / 100d;
 				System.out.println("Nombre: " + p.getNombre() + "|Euros: " + euros + "|Dolares: " + dolares);
 			}

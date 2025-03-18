@@ -52,30 +52,59 @@ public class ProductoDAOImpl implements IProductoDAO{
 		}
 		return lista;
 	}
-	
-	public List<Producto> listarProductosMinimo() throws Exception {
+
+	@Override
+	public List<Producto> listarProductosPrecioMinimo(double precioMinimo) throws Exception {
 		List<Producto> lista = new ArrayList<>();
 		
 		try(Connection con = DriverManager.getConnection(URL,USER,PASS)) {
-			String sql = "SELECT nombre, "
-					+ "precio AS euros, "
-					+ "(precio * 1.08) AS dolares, "
-					+ "'' AS fabricante FROM producto"
-					+ "ORDER BY precio ASC LIMIT 1;";
+			String sql = "SELECT p.nombre, p.precio, f.nombre AS fabricante "
+					+ "FROM producto p "
+					+ "INNER JOIN fabricante f ON p.id_fabricante = f.id "
+					+ "WHERE p.precio >= ? "
+					+ "ORDER BY p.precio ASC";
 			
 			try(PreparedStatement ps = con.prepareStatement(sql)) {
-				ResultSet rs = ps.executeQuery();
+				ps.setDouble(1, precioMinimo);
 				
-				while(rs.next()) {
-					Producto p = new Producto();
-					String nombre = rs.getString("nombre");
-					double euros = rs.getDouble("euros");
-					double dolares = rs.getDouble("dolares");
-					
-					p.setNombre(nombre);
-					p.setPrecio(euros);
-					
-					lista.add(p);
+				try(ResultSet rs = ps.executeQuery()){
+					while(rs.next()) {
+						Producto p = new Producto();
+						p.setNombre(rs.getString("nombre"));
+						p.setPrecio(rs.getDouble("precio"));
+						p.setFabricante(rs.getString("fabricante"));
+						
+						lista.add(p);
+					}
+				}
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public List<Producto> listarProductosPorNombre(String texto) throws Exception {
+		List<Producto> lista = new ArrayList<>();
+		
+		try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+			String sql = "SELECT p.nombre, p.precio, f.nombre AS fabricante "
+					+ "FROM producto p "
+					+ "INNER JOIN fabricante f ON p.id_fabricante = f.id "
+					+ "WHERE"
+					+ "ORDER BY ";
+			
+			try(PreparedStatement ps = con.prepareStatement(sql)) {
+				ps.setString(1, texto);
+				
+				try(ResultSet rs = ps.executeQuery()){
+					while(rs.next()) {
+						Producto p = new Producto();
+						p.setNombre(rs.getString("nombre"));
+						p.setPrecio(rs.getDouble("precio"));
+						p.setFabricante(rs.getString("fabricante"));
+						
+						lista.add(p);
+					}
 				}
 			}
 		}
