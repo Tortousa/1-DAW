@@ -52,4 +52,9 @@ public class Libro {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
+	@Override
+	public String toString() {
+		return "Libro [id : " + id + "\ntitulo : " + titulo + "\nautor : " + autor + "\nprecio : " + precio + "€]";
+	}
 }
